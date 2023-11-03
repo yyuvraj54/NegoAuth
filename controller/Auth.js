@@ -9,7 +9,7 @@ exports.signup = async(req,res) => {
         const {name,password,email}=req.body;
         const existingUser=await User.find({email});
         console.log("Hit")
-        if(existingUser){
+        if(existingUser[0]){
             return res.status(400).json({
                 success:false,
                 message:"User Alredy Exists",
